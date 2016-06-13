@@ -1,0 +1,9 @@
+[10-Jun-2016 15:05:43 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:06:58 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:22:17 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:29:27 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:29:43 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:46:09 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 15:57:12 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 16:19:03 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
+[10-Jun-2016 16:59:36 UTC] PHP Fatal error:  Cannot declare class App\Model\Table\GamesTable, because the name is already in use in /home/angelgameacostas/public_html/ApiAngel/src/Model/Table/LevelsTable.php on line 31
