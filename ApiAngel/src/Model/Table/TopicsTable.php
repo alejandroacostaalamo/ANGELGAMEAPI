@@ -7,7 +7,9 @@
 	use Cake\ORM\Table;
 	use Cake\Validation\Validator;
 
-	class GamesTable extends Table{
+	// se esta validando la tabla Topics
+
+	class TopicsTable extends Table{
 		public function initialize(array $config){
                     
 	        parent::initialize($config);
@@ -18,10 +20,13 @@
 	        //Clave primaria
 	        $this->primaryKey('Id');
 
-	        //Relacion de 1:m con la tabla LevelGames
-	        $this->hasMany('Games', [
+	        //relacion 1:n con tabla UserScore
+
+	        $this->hasMany('UserScore', [
+	        	
 	        	'foreignKey' => 'TopicId'
         	]);
+
 	    }
 	}
 ?>

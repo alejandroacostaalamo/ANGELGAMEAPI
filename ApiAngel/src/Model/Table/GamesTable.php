@@ -18,21 +18,11 @@
 	        //Clave primaria
 	        $this->primaryKey('Id');
 
-	        //Relacion de 1:m con la tabla LevelGames
-	        $this->hasMany('LevelGames', [
-	        	'foreignKey' => 'LevelId'
-        	]);
-
 	        //Relacion de 1:m con la tabla UserScore
 	        $this->hasMany('UserScore', [
 	        	'foreignKey' => 'GameId',
         	]);
 
-	        //Relacion de m:1 con la tabla Topics
-	        $this->belongsTo('Topics', [
-	        	'foreignKey' => 'TopicId',
-                    'joinType' => 'INNER',
-        	]);
 	    }
 	}
 ?>

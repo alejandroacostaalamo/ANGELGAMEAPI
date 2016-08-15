@@ -7,6 +7,8 @@
 	use Cake\ORM\Table;
 	use Cake\Validation\Validator;
 
+	//se esta validando la tabla LevelsTable
+
 	class LevelsTable extends Table{
 		public function initialize(array $config){
                     
@@ -19,14 +21,11 @@
 	        $this->primaryKey('Id');
 
 	        //Relacion de 1:m con la tabla LevelGames
-	        $this->hasMany('LevelGames', [
+	        $this->hasMany('UserScore', [
+	        	
 	        	'foreignKey' => 'LevelId'
         	]);
 
-	        //Relacion de 1:m con la tabla UserScore
-	        $this->hasMany('User_Score', [
-	        	'foreignKey' => 'UserId',
-        	]);
 	    }
 	}
 ?>

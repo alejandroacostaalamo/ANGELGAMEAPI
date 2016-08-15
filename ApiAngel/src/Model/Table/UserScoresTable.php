@@ -7,7 +7,10 @@
 	use Cake\ORM\Table;
 	use Cake\Validation\Validator;
 
+// se esta validando las tabla UserScore 
+
 	class UserScoresTable extends Table{
+
 		public function initialize(array $config){
                     
 	        parent::initialize($config);
@@ -32,6 +35,11 @@
 	        //Relacion de m:1 con la tabla Levels
 	        $this->belongsTo('Levels', [
 	        	'foreignKey' => 'LevelId',
+                        'joinType' => 'INNER',
+        	]);
+	        //Relacion de m:1 con la tabla Levels
+        	$this->belongsTo('Topics', [
+	        	'foreignKey' => 'TopicId',
                         'joinType' => 'INNER',
         	]);
 	    }

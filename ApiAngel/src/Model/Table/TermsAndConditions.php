@@ -7,6 +7,8 @@
 	use Cake\ORM\Table;
 	use Cake\Validation\Validator;
 
+	// se esta validando la tabla TermsAndConditions 
+
 	class TermsAndConditions extends Table{
 		public function initialize(array $config){
                     

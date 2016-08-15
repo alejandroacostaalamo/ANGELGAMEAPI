@@ -55,13 +55,15 @@ class ApiController extends AppController {
 	}
 
 	//Funcion para registrar Score
-	public function score($scores = null, $gameId = null, $levelId = null, $userId = null){
+	public function score($userId = null,$gameId = null,$topicId=null,$levelId = null,$scores = null){
+
 		if ($this->request->is(['post'])) {
 			//Registar Puntuacion
 			$scoreTable = TableRegistry::get('UserScores');
 			$score = $scoreTable->newEntity();
 			$score->Score  = $scores;
 			$score->GameId = $gameId;
+			$score->TopicId= $topicId;
 			$score->LevelId = $levelId;
 			$score->UserId = $userId;
 			$score->Created = date("Y-m-d H:i:s");
@@ -106,9 +108,22 @@ class ApiController extends AppController {
 						//Guardamos los datos
 						if ($userTable->save($user)) {
 			                $status = 'The user has been saved.';
+
+			               	$this->loadModel('Users');
+							$this->set('user',$this->Users
+										->find('all')
+										->select(['Id'=>'Users.Id'
+															,'Token'=>'Users.Token'
+															,'Name'=>'Users.Name'
+															,'LastName'=>'Users.LastName'
+															,'Email'=>'Users.Email'])
+										->where(['Users.StatusId' => 1, 'Users.Token' => $token])
+										->first());
+			               
 			            } else {
 			            	$status = 'Error in register.';
 			            }
+
 					}else {
 						$this->loadModel('Users');
 						$this->set('user',$this->Users
@@ -122,7 +137,8 @@ class ApiController extends AppController {
 										->first());
 						$status = 'The user has been updated.';
 					}
-			}elseif ($methodId==2) {
+
+				}elseif ($methodId==2) { //Auth. por Twitter
 				$exists = $userTable->exists(['Token' => $token]);
 					if (!$exists) {
 						//Registar
@@ -133,13 +149,25 @@ class ApiController extends AppController {
 						$user->Username = $username;
 						$user->Token = $token;
 						$user->Image = $image;
-						$user->AuthenticationMethodId = 2;//$methodId;
+						$user->AuthenticationMethodId = $methodId;//$methodId;
 						$user->StatusId = 1;
 						$user->TermId = 1;
 						
 						//Guardamos los datos
 						if ($userTable->save($user)) {
-								$status = 'The user has been saved.';
+							$status = 'The user has been saved.';
+
+							$this->loadModel('Users');
+							$this->set('user',$this->Users
+										->find('all')
+										->select(['Id'=>'Users.Id'
+															,'Token'=>'Users.Token'
+															,'Name'=>'Users.Name'
+															,'LastName'=>'Users.LastName'
+															,'Email'=>'Users.Email'])
+										->where(['Users.StatusId' => 1, 'Users.Token' => $token])
+										->first());
+
 						} else {
 							$status = 'Error in register.';
 						} 
@@ -150,7 +178,7 @@ class ApiController extends AppController {
 										->select(['Id'=>'Users.Id'
 															,'Token'=>'Users.Token'
 															,'Name'=>'Users.Name'
-															,'LastName'=>'User.LastName'
+															,'LastName'=>'Users.LastName'
 															,'Email'=>'Users.Email'])
 										->where(['Users.StatusId' => 1, 'Users.Token' => $token])
 										->first());
@@ -162,6 +190,8 @@ class ApiController extends AppController {
 
             //$this->set(compact('user'));
             $this->set('_serialize', ["user"]);
+
+
         }
 
 	}
