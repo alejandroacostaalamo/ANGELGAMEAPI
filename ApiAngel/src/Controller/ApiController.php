@@ -17,7 +17,54 @@ class ApiController extends AppController {
 
 	public function index(){
 
+		if(isset($_GET['oauth_token'])){
+
+			header("Pragma: no-cache");
+
+			if($this->request->session()->read('metodo')=='1'){
+
+				header('Location:http://angelgame.acostasite.com/folder/loginFromTwitter.php?oauth_token='.$_GET['oauth_token'].'&oauth_verifier='.$_GET['oauth_verifier']);
+
+			}else if($this->request->session()->read('metodo')=='2'){
+
+				header('Location:http://angelgame.acostasite.com/folder/PublicTwitter.php?oauth_token='.$_GET['oauth_token'].'&oauth_verifier='.$_GET['oauth_verifier'].'&message='.$this->request->session()->read('publication').'&image='.$this->request->session()->read('img').'&game='.$this->request->session()->read('game'));
+			}
+		}
 	}
+
+	// metodo para llamar el token en el login
+	public function method1(){
+
+		$session = $this->request->session();
+		$session->write('metodo', '1'); 
+		echo 'exito';
+
+	}
+
+	// metodo para llamar el token al publicar 
+
+	public function method2(){
+
+		$session = $this->request->session();
+		$session->write('metodo', '2'); 
+		echo 'exito';
+
+	}
+
+	// metodo que devuelve mensaje de publicacion 
+
+	public function Publication($message=null,$img=null,$game=null){
+
+		$this->request->session()->write('publication', $message);;
+		
+		$this->request->session()->write('img',$img); 
+
+		$this->request->session()->write('game',$game);
+
+		echo 'exito';
+
+	}
+
 
 	//Metodo para la consulta del perfil del usuario
 	public function profile($token=null){
@@ -83,6 +130,7 @@ class ApiController extends AppController {
         }
 
 	}
+
 
 	//Funcion para registrar Usuarios
 	public function register($name = null, $lastname = null, $token = null, $email = null, $username = null, $image = null, $methodId = null){
