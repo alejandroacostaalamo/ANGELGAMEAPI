@@ -62,4 +62,19 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+	
+	 public function home(){
+		$userId = 0/*$this->Auth->user('Id')*/;
+
+		// Vars
+		$pageTitle = "Home Juego A.N.G.E.L.";
+		$breadcrumbs = '<li>Juego A.N.G.E.L.</li>
+        <li class="active">Home</li>';
+		$this->set('pageTitle', $pageTitle);
+		$this->set('_serialize', ['pageTitle']);
+		$this->set('breadcrumbs', $breadcrumbs);
+		$this->set('_serialize', ['breadcrumbs']);
+		$this->set('userId', $userId);
+        $this->set('_serialize', ['userId']);                
+	}
 }

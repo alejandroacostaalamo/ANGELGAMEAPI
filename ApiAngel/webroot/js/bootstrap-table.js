@@ -262,7 +262,7 @@
         responseHandler: function (res) {
             return res;
         },
-        pagination: false,
+        pagination: true,
         sidePagination: 'client', // client or server
         totalRows: 0, // server side need to set
         pageNumber: 1,
@@ -407,31 +407,31 @@
 
     BootstrapTable.LOCALES['en-US'] = BootstrapTable.LOCALES['en'] = {
         formatLoadingMessage: function () {
-            return 'Loading, please wait...';
+            return 'Cargando...';
         },
         formatRecordsPerPage: function (pageNumber) {
-            return sprintf('%s records per page', pageNumber);
+            return sprintf('%s registros por página', pageNumber);
         },
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return sprintf('Showing %s to %s of %s rows', pageFrom, pageTo, totalRows);
+            return sprintf('Mostrando %s a %s de %s registros', pageFrom, pageTo, totalRows);
         },
         formatSearch: function () {
-            return 'Search';
+            return 'Buscar';
         },
         formatNoMatches: function () {
-            return 'No matching records found';
+            return 'No hay registros';
         },
         formatPaginationSwitch: function () {
-            return 'Hide/Show pagination';
+            return 'Mostrar/Ocultar paginación';
         },
         formatRefresh: function () {
-            return 'Refresh';
+            return 'Refrescar';
         },
         formatToggle: function () {
             return 'Toggle';
         },
         formatColumns: function () {
-            return 'Columns';
+            return 'Columnas';
         },
         formatAllRows: function () {
             return 'All';
@@ -1176,20 +1176,20 @@
             this.options.formatShowingRows(this.pageFrom, this.pageTo, this.options.totalRows),
             '</span>');
 
-        // html.push('<span class="page-list open">');
+         html.push('<span class="page-list open">');
 
          var pageNumber = [
                  sprintf('<span id="btn-span" class="btn-group %s">',
                      this.options.paginationVAlign === 'top' || this.options.paginationVAlign === 'both' ?
                         'dropdown' : 'dropup'),
-                // '<button type="button" class="' +
-                //  (this.options.iconSize === undefined ? '' : ' btn-' + this.options.iconSize) +
-                //  'btn btn-default dropdown-toggle" data-toggle="dropdown">',
-                //  '<span class="page-size">',
-                //  $allSelected ? this.options.formatAllRows() : this.options.pageSize,
-                //   '</span>',
-                //  ' <span class="caret"></span>',
-                //  '</button>',
+                 '<button type="button" class="' +
+                  (this.options.iconSize === undefined ? '' : ' btn-' + this.options.iconSize) +
+                  'btn btn-default dropdown-toggle" data-toggle="dropdown">',
+                  '<span class="page-size">',
+                  $allSelected ? this.options.formatAllRows() : this.options.pageSize,
+                  '</span>',
+                  ' <span class="caret"></span>',
+                  '</button>',
                 '<ul id="menu-col" class="dropdown-menu" role="menu">'//
             ],
              pageList = this.options.pageList;
