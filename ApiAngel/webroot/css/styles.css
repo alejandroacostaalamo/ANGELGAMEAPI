@@ -9,6 +9,9 @@ body{
     background-position-y: 151px;
 }
 
+label{
+	color: darkgray !important;
+}
 .logo{
 	padding: 50px 5px 29px;
 	margin-left: auto;

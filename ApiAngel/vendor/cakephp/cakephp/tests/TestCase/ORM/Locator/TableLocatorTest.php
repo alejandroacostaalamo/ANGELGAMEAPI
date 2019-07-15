@@ -534,46 +534,4 @@ class TableLocatorTest extends TestCase
     /**
      * testRemovePlugin
      *
-     * Removing a plugin-prefixed model should not affect any other
-     * plugin-prefixed model, or app model.
-     * Removing an app model should not affect any other
-     * plugin-prefixed model.
-     *
-     * @return void
-     */
-    public function testRemovePlugin()
-    {
-        Plugin::load('TestPlugin');
-        Plugin::load('TestPluginTwo');
-
-        $app = $this->_locator->get('Comments');
-        $this->_locator->get('TestPlugin.Comments');
-        $plugin = $this->_locator->get('TestPluginTwo.Comments');
-
-        $this->assertTrue($this->_locator->exists('Comments'));
-        $this->assertTrue($this->_locator->exists('TestPlugin.Comments'));
-        $this->assertTrue($this->_locator->exists('TestPluginTwo.Comments'));
-
-        $this->_locator->remove('TestPlugin.Comments');
-
-        $this->assertTrue($this->_locator->exists('Comments'));
-        $this->assertFalse($this->_locator->exists('TestPlugin.Comments'));
-        $this->assertTrue($this->_locator->exists('TestPluginTwo.Comments'));
-
-        $app2 = $this->_locator->get('Comments');
-        $plugin2 = $this->_locator->get('TestPluginTwo.Comments');
-
-        $this->assertSame($app, $app2, 'Should be the same Comments object');
-        $this->assertSame($plugin, $plugin2, 'Should be the same TestPluginTwo.Comments object');
-
-        $this->_locator->remove('Comments');
-
-        $this->assertFalse($this->_locator->exists('Comments'));
-        $this->assertFalse($this->_locator->exists('TestPlugin.Comments'));
-        $this->assertTrue($this->_locator->exists('TestPluginTwo.Comments'));
-
-        $plugin3 = $this->_locator->get('TestPluginTwo.Comments');
-
-        $this->assertSame($plugin, $plugin3, 'Should be the same TestPluginTwo.Comments object');
-    }
-}
+     * Removing a plugin-prefixe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

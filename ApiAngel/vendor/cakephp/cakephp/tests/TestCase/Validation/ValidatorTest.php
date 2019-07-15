@@ -1603,27 +1603,4 @@ class ValidatorTest extends TestCase
     {
         $name = $name ?: $method;
         if ($extra !== null) {
-            $this->assertSame($validator, $validator->{$method}('username', $extra));
-        } else {
-            $this->assertSame($validator, $validator->{$method}('username'));
-        }
-
-        $rule = $validator->field('username')->rule($method);
-        $this->assertNotEmpty($rule, "Rule was not found for $method");
-        $this->assertNull($rule->get('message'), 'Message is present when it should not be');
-        $this->assertNull($rule->get('on'), 'On clause is present when it should not be');
-        $this->assertEquals($name, $rule->get('rule'), 'Rule name does not match');
-        $this->assertEquals($pass, $rule->get('pass'), 'Passed options are different');
-        $this->assertEquals('default', $rule->get('provider'), 'Provider does not match');
-
-        if ($extra !== null) {
-            $validator->{$method}('username', $extra, 'the message', 'create');
-        } else {
-            $validator->{$method}('username', 'the message', 'create');
-        }
-
-        $rule = $validator->field('username')->rule($method);
-        $this->assertEquals('the message', $rule->get('message'), 'Error messages are not the same');
-        $this->assertEquals('create', $rule->get('on'), 'On clause is wrong');
-    }
-}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             

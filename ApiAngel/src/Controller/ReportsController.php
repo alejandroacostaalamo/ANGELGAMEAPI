@@ -98,30 +98,30 @@ class ReportsController extends AppController {
 			
 			// Crossword
 			if ($report==1){
-						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, `Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=1 order by Score desc";
+						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, S.`Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=1 order by Score desc";
 						//echo '<br>'.$qr;		
 						$connection = ConnectionManager::get('default');		
 						$this->set('Pubs', $connection->execute($qr)->fetchAll('assoc')); 
 			}else if ($report==4){ // Memoria
-						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, `Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=4 order by Score desc";
+						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, S.`Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=4 order by Score desc";
 						//echo '<br>'.$qr;		
 						$connection = ConnectionManager::get('default');		
 						$this->set('Pubs', $connection->execute($qr)->fetchAll('assoc')); 
 			}
 			else if ($report==2){ // Discos
-						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, `Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=2 order by Score desc";
+						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, S.`Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=2 order by Score desc";
 						//echo '<br>'.$qr;		
 						$connection = ConnectionManager::get('default');		
 						$this->set('Pubs', $connection->execute($qr)->fetchAll('assoc')); 
 			}
 			else if ($report==3){ // Drag
-						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, `Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=3 order by Score desc";
+						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, S.`Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=3 order by Score desc";
 						//echo '<br>'.$qr;		
 						$connection = ConnectionManager::get('default');		
 						$this->set('Pubs', $connection->execute($qr)->fetchAll('assoc')); 
 			}
 			else { // trivia
-						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, `Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=5 order by Score desc";
+						$qr="SELECT concat(U.Name,' ', U.LastName) as Name, `Score`, S.`Created`, G.Name as Game, Level FROM `UserScores` S left join Users U on U.Id = S.`UserId` inner join Games G on G.Id = GameId LEFT join Levels L on L.Id = LevelId where G.Id=5 order by Score desc";
 						//echo '<br>'.$qr;		
 						$connection = ConnectionManager::get('default');		
 						$this->set('Pubs', $connection->execute($qr)->fetchAll('assoc')); 

@@ -410,24 +410,4 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
 
         // migrate to the latest version
         $this->manager->setConfig($config);
-        $this->manager->migrate('production');
-
-        // ensure up migrations worked
-        $this->assertFalse($adapter->hasTable('info'));
-        $this->assertTrue($adapter->hasTable('statuses'));
-        $this->assertTrue($adapter->hasTable('users'));
-        $this->assertTrue($adapter->hasTable('user_logins'));
-        $this->assertTrue($adapter->hasColumn('users', 'biography'));
-        $this->assertTrue($adapter->hasForeignKey('user_logins', array('user_id')));
-
-        // revert all changes to the first
-        $this->manager->rollback('production', '20121213232502');
-
-        // ensure reversed migrations worked
-        $this->assertTrue($adapter->hasTable('info'));
-        $this->assertFalse($adapter->hasTable('statuses'));
-        $this->assertFalse($adapter->hasTable('user_logins'));
-        $this->assertTrue($adapter->hasColumn('users', 'bio'));
-        $this->assertFalse($adapter->hasForeignKey('user_logins', array('user_id')));
-    }
-}
+        $this->manager->migrate('produc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

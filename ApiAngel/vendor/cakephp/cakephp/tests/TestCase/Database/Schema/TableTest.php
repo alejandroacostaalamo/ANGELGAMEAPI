@@ -643,7 +643,4 @@ class TableTest extends TestCase
             $optional = '?';
         }
         $pattern = str_replace('<', '[`"\[]' . $optional, $pattern);
-        $pattern = str_replace('>', '[`"\]]' . $optional, $pattern);
-        $this->assertRegExp('#' . $pattern . '#', $query);
-    }
-}
+        $pattern = str_replace('>', '[`"\]]' . $optional, $pat                                                                              
